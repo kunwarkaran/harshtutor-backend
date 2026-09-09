@@ -1,5 +1,6 @@
 import { Router } from "express";
 import passport from "../config/passport.js";
+import { googleCallback } from "../controllers/auth.controller.js";
 
 const router = Router();
 
@@ -24,12 +25,7 @@ router.get(
     session: false,
     failureRedirect: "/api/auth/login",
   }),
-  (req, res) => {
-    res.status(200).json({
-      message: "Google authentication successful",
-      user: req.user,
-    });
-  }
+  googleCallback
 );
 
 export default router;

@@ -10,13 +10,6 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        console.log("Google Profile:", profile);
-
-        // Later:
-        // 1. Check if user exists in database
-        // 2. Create user if user doesn't exist
-        // 3. Return user
-
         return done(null, profile);
       } catch (error) {
         return done(error, null);
